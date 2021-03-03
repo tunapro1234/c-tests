@@ -7,13 +7,11 @@ u32 search_linear(s32 target, s32 *array, u32 array_start_index, u32 array_lengt
 }
 
 u32 search_binary(s32 target, s32 *array, u32 array_start_index, u32 array_length){
-	u32 mid_point = array_length-1;
-	
-	mid_point = (int)((array_start_index + mid_point) / 2);
+	u32 mid_point = (int)((array_start_index + array_length-1) / 2);
 	
 	if (array[mid_point] == target)
 		return mid_point;
-	else if (mid_point == 0 || mid_point == array_length-1)
+	else if (array_start_index == array_length-1)
 		return -1;
 	else if (target < array[mid_point])
 		return search_binary(target, array, array_start_index, mid_point);
