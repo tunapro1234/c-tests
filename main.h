@@ -10,3 +10,4 @@ typedef enum { False=0, True }  bool;
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>

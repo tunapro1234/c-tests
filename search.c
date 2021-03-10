@@ -1,13 +1,15 @@
 #include "main.h"
 
-u32 search_linear(s32 target, s32 *array, u32 array_start_index, u32 array_length){
-	for (int i = array_start_index; i < array_length; i++)
+size_t search_linear(s32 target, s32 *array, size_t array_start_index, size_t array_length){
+	size_t i;
+	for (i = array_start_index; i < array_length; i++)
 		if (array[i] == target) { return i; }
 	return -1;
 }
 
-u32 search_binary(s32 target, s32 *array, u32 array_start_index, u32 array_length){
-	u32 mid_point = (int)((array_start_index + array_length-1) / 2);
+size_t search_binary(s32 target, s32 *array, size_t array_start_index, size_t array_length){
+	/* size_t mid_point = (int)((array_start_index + array_length-1) / 2); */ /* (r+l)/2 */
+	size_t mid_point = (int)(array_start_index + (array_length - array_start_index) / 2); /* l+(r-l)/2 */
 	
 	if (array[mid_point] == target)
 		return mid_point;
